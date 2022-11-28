@@ -99,9 +99,44 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   delete(key) {
+    //locate the index of the key that we want to delete
+    let index = this.hashMod(key)
+    let current = this.data[index]
+    let prev
+    // check if there are no values or pairs, then return error "Key not found"
+    // if (!current) throw new Error("Key not found")
+    while (current && current.key !== key) {
+      prev = current
+      current = current.next
+    }
+    if (!current) {
+      return "Key not found"
+    } else {
+      if (!prev) {
+        this.data[index] = current.next
+      }
+      else {
+        prev.next = current.next
+      }
+      this.count--
+    }
 
-  }
+    // } if (current.key === key) {
+    //   this.data[index] = current.next
+    //   this.count--
+    //   return
+    // } else {
+    //   let remove = current;
+    //   prev.next = remove.next;
+    //   remove.next = null;
+    //   this.count--
+      // return remove
+    }
+    // if a pair exists, move next pointer to the next node
+
 }
+
+
 
 
 module.exports = HashTable;
