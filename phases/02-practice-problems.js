@@ -18,7 +18,13 @@ function commonElements(arr1, arr2) {
 
 
 function duplicate(arr) {
-  // Your code here
+  let set = new Set();
+
+  for (let i = 0; i < arr.length; i++) {
+    if (set.has(arr[i])) {
+      return arr[i]
+    } else set.add(arr[i])
+  }
 }
 
 
