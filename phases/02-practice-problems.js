@@ -11,7 +11,9 @@ function anagrams(str1, str2) {
 
 
 function commonElements(arr1, arr2) {
-  // Your code here
+  let set1 = new Set(arr1)
+  return arr2.filter(element => set1.has(element))
+
 }
 
 
