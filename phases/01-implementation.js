@@ -54,7 +54,19 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   read(key) {
-    // Your code here
+    //find the index using the hashMod(key)
+    let index = this.hashMod(key);
+    //look at the bucket that has the index
+    if (!this.data[index]) return;
+    //check the key at this.data[index]. if that key === key, return the value
+    let current = this.data[index];
+    while (current) {
+      if (current.key === key) {
+        return current.value;
+      } else current = current.next;
+    }
+    return;
+
   }
 
 
