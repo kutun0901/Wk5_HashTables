@@ -1,5 +1,12 @@
 function anagrams(str1, str2) {
-  // Your code here
+  let set1 = new Set(str1.split(''));
+  for (let i = 0; i < str2.length; i++) {
+    if (!set1.has(str2[i])) {
+      return false;
+    }
+  }
+  return true;
+
 }
 
 
