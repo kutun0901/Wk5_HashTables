@@ -71,7 +71,25 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   resize() {
-    // Your code here
+    // preserve a copy of this.data
+    let oldData = this.data
+    this.count = 0
+    // double the capacity by creating a new Array
+    this.capacity = 2 * this.capacity
+    this.data = new Array(this.capacity).fill(null)
+    // find a way to pass all old data to the new array
+    for (let i = 0; i < oldData.length; i++) {
+      let current = oldData[i]
+      //check if value exists in bucket
+      while (current) {
+        this.insert(current.key, current.value)
+        current = current.next
+      }
+      // if no, iterate to next loop
+      // if value does exist, use while loop to access every item in linked list
+    }
+
+
   }
 
 
