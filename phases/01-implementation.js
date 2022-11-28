@@ -31,6 +31,11 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   insert(key, value) {
+
+    if (this.count/this.capacity > 0.7) this.resize();
+    //if current doesn't exist, check if array.length >= loadFactor
+
+
     let newPair = new KeyValuePair(key, value)
     let index = this.hashMod(key)
     let current = this.data[index]
@@ -94,7 +99,7 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   delete(key) {
-    // Your code here
+
   }
 }
 
